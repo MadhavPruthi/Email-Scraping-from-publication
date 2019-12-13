@@ -1,0 +1,23 @@
+#MainDiv
+{
+    background-color: #f3ffc8;
+    height: 250px;
+    width: 250px;
+    border-radius: 16px;
+}
+.form-actions {
+    margin:0;
+    background-color: transparent;
+    text-align: center;
+    margin-top: 100px;
+    padding-top: 10px;
+}
+.btn
+{
+    margin-top: 40px;
+}
+h1
+{
+    text-align: center;
+    padding-top: 4px;
+}

@@ -1,0 +1,27 @@
+{% load static %}
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome</title>
+
+    <link rel="stylesheet" href="{% static 'MainApp/homepage.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+</head>
+<body>
+
+    <h1 class="text-primary center">WELCOME TO EMAIL <span class="text-warning">MARKETING</span></h1>
+    <div class="container" id="MainDiv">
+        <div class="form-actions">
+            <a class="btn btn-primary btn-lg" href="/main"><span style="color: white">Search By DOI</span></a>
+            <a class="btn btn-warning btn-lg" href="/journal"><span style="color: white">Search By Journal</span></a>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,78 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+</head>
+<body>
+
+    <div class="container" id="MainDiv">
+        <div class="row">
+            <div class="col-md-3">
+
+                <form id="Email-form" method="GET" class="form-group" action="">
+                    <label for="doiinput" class="text-primary">Enter ISSN of the Journal</label>
+                    <input id="doiinput" name='q' type="text" placeholder="Journal ISSN" value="{{ request.GET.q }}" class="form-control"><br>
+
+                    <label for="startyear" class="text-primary">Enter Start Date</label>
+                    <input id="startyear" name='s' type="date" placeholder="Start Year" value="{{ request.GET.s }}" class="form-control"><br>
+
+                    <label for="endyear" class="text-primary">Enter End Date</label>
+                    <input id="endyear" name='e' type="date" placeholder="End Year" value="{{ request.GET.e }}" class="form-control"><br>
+
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+
+            </div>
+         </div>
+
+        <div id="loading">
+            <h3 id="gethead"></h3>
+            <img id="loadimg">
+        </div>
+
+    <div id="totalCitations"></div>
+
+        {% if TotalSize %}
+            <h3>Total DOIs Fetched: {{ TotalSize }}</h3>
+            <h3>Total Valid Emails Fetched: {{ ValidEmailsSize }}</h3>
+        {% endif %}
+
+        <div class="container">
+          <table class="table table-striped" id="Email-Results">
+            <thead>
+              <tr>
+                <th>DOI</th>
+                <th>E-Mail</th>
+                  <th>Title</th>
+                  <th>Author</th>
+                  <th>Created Date</th>
+
+              </tr>
+            </thead>
+              <tbody id="email-list">
+                {% for obj in MailList %}
+                    <tr>
+                        <td> {{ obj.DOI }} </td>
+                        <td> {{ obj.Email }} </td>
+                        <th>{{ obj.title }}</th>
+                        <th>{{ obj.Author }}</th>
+                        <th>{{ obj.Date }}</th>
+                    </tr>
+              {% endfor %}
+              </tbody>
+            </table>
+        </div>
+
+    </div>
+
+<script src="{% static 'MainApp/journal.js' %}"></script>
+</body>
+</html>
