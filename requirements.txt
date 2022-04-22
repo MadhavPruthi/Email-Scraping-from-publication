@@ -21,7 +21,7 @@ lxml==4.2.4
 pycparser==2.18
 pyOpenSSL==18.0.0
 pyparsing==2.2.0
-PyPDF2==1.26.0
+PyPDF2==1.27.5
 PySocks==1.6.8
 python-dateutil==2.7.3
 pytz==2018.5
